@@ -24,17 +24,6 @@ positions.push(
   new Vector3(-1.0, -1.0,  1.0)
 );
 modelMesh.setPositions(positions);
-
-modelMesh.setColors(
-  [
-    new Color(1, 0, 0),
-    new Color(1, 1, 0),
-    new Color(0, 1, 1),
-    new Color(0, 1, 0),
-    new Color(0, 1, 1),
-    new Color(1, 0, 1),
-  ]
-);
 // 上传数据
 modelMesh.uploadData(false);
 
