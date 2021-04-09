@@ -13,7 +13,7 @@ let camera = cameraEntity.addComponent(Camera)
 
 let controler = cameraEntity.addComponent(OrbitControl);
 controler.autoRotate = true;
-controler.autoRotateSpeed = 10.0;
+controler.autoRotateSpeed = Math.PI / 5;
 controler.minDistance = 4;
 controler.maxDistance = 50;
 ```
@@ -21,6 +21,8 @@ controler.maxDistance = 50;
 ## 自由控制器
 
 [FreeControl](${book.api}classes/controls.freecontrol.html) 一般用于漫游控制，常见于游戏场景：
+
+使用案例可以参考[Playground](${book.playground}#/controls-free)。
 
 ```typescript
 import { Camera } from 'oasis-engine';
@@ -33,7 +35,6 @@ let camera = cameraEntity.addComponent(Camera)
 let controler = cameraEntity.createAbility(FreeControl);
 controler.movementSpeed = 100;
 controler.rotateSpeed = 1;
-controler.jumpY = 50;
 ```
 
 
