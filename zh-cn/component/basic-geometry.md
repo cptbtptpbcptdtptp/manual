@@ -1,68 +1,81 @@
-# 基础几何体渲染器
+# 基础几何体
 
-目前提供了以下几种形状的几何体：
+常用几何体统一在 [PrimitiveMesh](${book.api}classes/core.primitivemesh.html) 中提供，目前提供的几何体如下，完整使用示例见 [playgournd](${book.playground}#/primitive-mesh)
 
-- [CuboidGeometry](${book.api}classes/core.cuboidgeometry.html) **立方体**
+- [createCuboid](${book.api}classes/core.primitivemesh.html) **立方体**
 
 ```typescript
-let sphere = rootEntity.createChild('sphere');
-let sphereRenderer = sphere.addComponent(GeometryRenderer);
-sphereRenderer.geometry = new CuboidGeometry(engine, 2, 2, 2);
-
-// 创建材质
-let mtl = new UnlitMaterial(engine);
-mtl.baseColor = new Color(0.75, 0.25, 0.25, 1);
-sphereRenderer.material = mtl;
+const entity = rootEntity.createChild('cuboid');
+entity.transform.setPosition(0, 1, 0);
+const renderer = entity.addComponent(MeshRenderer);
+renderer.mesh = PrimitiveMesh.createCuboid(engine);
+// Create material
+const material = new BlinnPhongMaterial(engine);
+material.emissiveColor.setValue(1, 1, 1, 1);
+renderer.setMaterial(material);
 ```
 
-- [SphereGeometry](${book.api}classes/core.spheregeometry.html) **球体**
+- [createSphere](${book.api}classes/core.primitivemesh.html) **球体**
 
 ```typescript
-let sphere = rootEntity.createChild('sphere');
-let sphereRenderer = sphere.addComponent(GeometryRenderer);
-sphereRenderer.geometry = new SphereGeometry(engine, 3, 32, 32);
-
-// 创建材质
-let mtl = new UnlitMaterial(engine);
-mtl.baseColor = new Color(0.75, 0.25, 0.25, 1);
-sphereRenderer.material = mtl;
+const entity = rootEntity.createChild('sphere');
+entity.transform.setPosition(0, 1, 0);
+const renderer = entity.addComponent(MeshRenderer);
+renderer.mesh = PrimitiveMesh.createSphere(engine);
+// Create material
+const material = new BlinnPhongMaterial(engine);
+material.emissiveColor.setValue(1, 1, 1, 1);
+renderer.setMaterial(material);
 ```
 
-- [PlaneGeometry](${book.api}classes/core.planegeometry.html) **平面**
+- [createPlane](${book.api}classes/core.primitivemesh.html) **平面**
 
 ```typescript
-let sphere = rootEntity.createChild('sphere');
-let sphereRenderer = sphere.addComponent(GeometryRenderer);
-sphereRenderer.geometry = new PlaneGeometry(engine, 3, 3, 32, 32);
-
-// 创建材质
-let mtl = new UnlitMaterial(engine);
-mtl.baseColor = new Color(0.75, 0.25, 0.25, 1);
-sphereRenderer.material = mtl;
+const entity = rootEntity.createChild('plane');
+entity.transform.setPosition(0, 1, 0);
+const renderer = entity.addComponent(MeshRenderer);
+renderer.mesh = PrimitiveMesh.createPlane(engine);
+// Create material
+const material = new BlinnPhongMaterial(engine);
+material.emissiveColor.setValue(1, 1, 1, 1);
+renderer.setMaterial(material);
 ```
 
-- [CircleGeometry](${book.api}classes/core.circlegeometry.html) **圆形**
+- [createCylinder](${book.api}classes/core.primitivemesh.html) **圆柱**
 
 ```typescript
-let sphere = rootEntity.createChild('sphere');
-let sphereRenderer = sphere.addComponent(GeometryRenderer);
-sphereRenderer.geometry = new CircleGeometry(engine, {segments: 100});
-
-// 创建材质
-let mtl = new UnlitMaterial(engine);
-mtl.baseColor = new Color(0.75, 0.25, 0.25, 1);
-sphereRenderer.material = mtl;
+const entity = rootEntity.createChild('cylinder');
+entity.transform.setPosition(0, 1, 0);
+const renderer = entity.addComponent(MeshRenderer);
+renderer.mesh = PrimitiveMesh.createCylinder(engine);
+// Create material
+const material = new BlinnPhongMaterial(engine);
+material.emissiveColor.setValue(1, 1, 1, 1);
+renderer.setMaterial(material);
 ```
 
-- [CylinderGeometry](${book.api}classes/core.cylindergeometry.html) **圆柱**
+- [createTorus](${book.api}classes/core.primitivemesh.html) **圆环**
 
 ```typescript
-let sphere = rootEntity.createChild('sphere');
-let sphereRenderer = sphere.addComponent(GeometryRenderer);
-sphereRenderer.geometry = new CylinderGeometry(engine, 2, 3, 5, 32);
+const entity = rootEntity.createChild('torus');
+entity.transform.setPosition(0, 1, 0);
+const renderer = entity.addComponent(MeshRenderer);
+renderer.mesh = PrimitiveMesh.createTorus(engine);
+// Create material
+const material = new BlinnPhongMaterial(engine);
+material.emissiveColor.setValue(1, 1, 1, 1);
+renderer.setMaterial(material);
+```
 
-// 创建材质
-let mtl = new UnlitMaterial(engine);
-mtl.baseColor = new Color(0.75, 0.25, 0.25, 1);
-sphereRenderer.material = mtl;
+- [createCone](${book.api}classes/core.primitivemesh.html) **圆锥**
+
+```typescript
+const entity = rootEntity.createChild('cone');
+entity.transform.setPosition(0, 1, 0);
+const renderer = entity.addComponent(MeshRenderer);
+renderer.mesh = PrimitiveMesh.createCone(engine);
+// Create material
+const material = new BlinnPhongMaterial(engine);
+material.emissiveColor.setValue(1, 1, 1, 1);
+renderer.setMaterial(material);
 ```
